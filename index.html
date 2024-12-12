@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI对话游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="api-key-modal" id="apiKeyModal">
+        <div class="modal-content">
+            <h2>请输入 Deepseek API 密钥</h2>
+            <input type="password" id="apiKeyInput" placeholder="输入你的 API 密钥">
+            <button id="submitApiKey">确认</button>
+            <p class="error-message" id="apiKeyError"></p>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="edit-profile-modal" id="editProfileModal" style="display: none;">
+            <div class="modal-content">
+                <h2>编辑角色设定</h2>
+                <form id="profileEditForm">
+                    <div class="form-group">
+                        <label>角色名称：</label>
+                        <input type="text" id="editName">
+                    </div>
+                    <div class="form-group">
+                        <label>角色定位：</label>
+                        <input type="text" id="editRole">
+                    </div>
+                    <div class="form-group">
+                        <label>背景故事：</label>
+                        <textarea id="editBackground" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>性格特点：</label>
+                        <input type="text" id="editTraits" placeholder="用逗号分隔">
+                    </div>
+                    <div class="form-group">
+                        <label>兴趣爱好：</label>
+                        <input type="text" id="editInterests" placeholder="用逗号分隔">
+                    </div>
+                    <div class="form-group">
+                        <label>说话风格：</label>
+                        <textarea id="editSpeakingStyle" rows="2"></textarea>
+                    </div>
+                    <div class="personality-sliders">
+                        <div class="slider-group">
+                            <label>幽默感：</label>
+                            <input type="range" id="editHumor" min="0" max="100">
+                            <span class="slider-value"></span>
+                        </div>
+                        <div class="slider-group">
+                            <label>创造力：</label>
+                            <input type="range" id="editCreativity" min="0" max="100">
+                            <span class="slider-value"></span>
+                        </div>
+                        <div class="slider-group">
+                            <label>友好度：</label>
+                            <input type="range" id="editFriendliness" min="0" max="100">
+                            <span class="slider-value"></span>
+                        </div>
+                        <div class="slider-group">
+                            <label>严肃度：</label>
+                            <input type="range" id="editSeriousness" min="0" max="100">
+                            <span class="slider-value"></span>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit">保存</button>
+                        <button type="button" class="cancel-btn">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="agents-container">
+            <!-- AI角色们会在这里显示 -->
+        </div>
+        <div class="chat-container">
+            <div class="chat-messages"></div>
+        </div>
+        <div class="controls">
+            <button id="startConversation">开始对话</button>
+            <button id="resetConversation">重置对话</button>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/agents.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
